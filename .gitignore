@@ -35,3 +35,33 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.nav
+*.out
+*.pdf
+*.snm
+*.synctex.gz
+*.toc
+*.xdv
+
+# Editor backups and local files
+*.bak
+*.bak*
+*.swp
+*.swo
+*~
+.DS_Store
+.vscode/
