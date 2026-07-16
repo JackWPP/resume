@@ -7,6 +7,11 @@
 %\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
 \usepackage{linespacing_fix} % disable extra space before next section
 \usepackage{cite}
+\usepackage{geometry}
+\usepackage{multicol}
+\geometry{top=0.40in,bottom=0.40in}
+\setlist[itemize]{topsep=0.10em,parsep=0.1ex,leftmargin=1.5pc}
+\linespread{0.85}
 
 \begin{document}
 \pagenumbering{gobble} % suppress displaying page number
@@ -46,25 +51,31 @@
 
 \section{校园实践}
 \datedsubsection{\textbf{北京化工大学 | 北校区工作办公室}, 特邀摄影师}{2023 - 2025}
-\begin{itemize}
-  \item 负责学校重要活动的现场拍摄与视觉记录工作，包括重要来宾跟拍、活动全程纪实等，确保影像素材的专业性与完整性
-  \item 独立策划并执行主题性视觉内容创作，为校园推送与宣传材料提供高质量图像支持
+\begin{itemize}[parsep=0.1ex]
+  \item 负责学校重要活动现场拍摄与视觉记录，包括重要来宾跟拍、活动全程纪实等，确保影像素材的专业性与完整性
   \item 连续两年负责新生入学"第一张照片"拍摄及宣传片制作，作品获校官方媒体刊发，单条播放量突破\textbf{10万+}
 \end{itemize}
 
 
 \section{项目经历}
-\datedsubsection{\textbf{PCBTool.AI | 智能PCB设计辅助系统},算法负责人}{2025 - 至今}
-\begin{itemize}
-  \item \textbf{技术架构设计与实现：}基于大模型与RAG技术构建多模态智能系统，支持自然语言、电路图等多类型输入，自动生成项目文档、部署指南及PCB Layout方案
-  \item \textbf{系统部署与优化：}主导Dify框架私有化部署方案设计，通过多Agent协作架构与精准提示词工程，实现大模型精细调优，系统响应准确率提升40\%+
-  \item \textbf{项目成果：}带领团队获得\textbf{"挑战杯"全国大学生课外学术科技作品竞赛北京市一等奖}
+\datedsubsection{\textbf{FoxSay 狐说 | 课程级AI学习Copilot},全栈开发(独立)}{2025 - 至今}
+\begin{itemize}[parsep=0.05ex]
+  \item \textbf{CRAG边界控制：}自研Confidence-RAG三档门控——\texttt{$\ge$\,0.72}附页码引用、\texttt{0.55--0.72}标注基于通用知识、\texttt{<\,0.55}直接拒答，解决通用AI\textbf{幻觉与超纲}问题
+  \item \textbf{全栈实现：}前端 \textbf{React 19 + TS 6 + Tailwind v4 + Vite 8}（\texttt{reactflow}+\texttt{@dagrejs/dagre} 知识图谱、\texttt{katex} 公式）；后端 Python + \textbf{LangGraph} 多Agent，\textbf{168 个后端测试用例全部通过}
+  \item \textbf{完整闭环：}4阶段Pipeline构建知识体系 $\to$ 7工具ReAct混合检索 $\to$ React Flow知识图谱 $\to$ 9步状态机超级备考 $\to$ 多题型自动出题
+  \item \textbf{狐狸人设：}文案"贱萌但靠谱"风格 + \texttt{fox-breathe}/\texttt{fox-shimmer}/\texttt{fox-stagger-in}/\texttt{fox-pulse-ring} 等命名CSS动画，视觉/文案/交互统一
 \end{itemize}
-\datedsubsection{\textbf{创享商圈 ROBOT-XZC团队 | 技术服务与创业实践},创始人/技术负责人}{2023 - 至今}
-\begin{itemize}
-  \item \textbf{技术服务运营：}主导校园技术服务平台建设，累计完成电子产品维修及3D打印服务\textbf{2000+次}，客户满意度95\%+
-  \item \textbf{技术培训与推广：}策划并执行机器人技术与3D打印公益培训\textbf{100余场}，覆盖师生\textbf{1000+人}
-  \item \textbf{商业闭环构建：}创新"维修盈利+硬件研发"双轮驱动模式，实现月均营收8000元
+\datedsubsection{\textbf{PCBTool.AI | 智能PCB设计辅助系统},算法负责人}{2025 - 至今}
+\begin{itemize}[parsep=0.1ex]
+  \item \textbf{技术架构：}基于大模型+RAG构建多模态智能系统，支持自然语言/电路图多类型输入，自动生成项目文档、部署指南及PCB Layout方案
+  \item \textbf{部署优化：}主导Dify私有化部署，通过多Agent协作与精准Prompt工程精细调优，系统响应准确率提升40\%+
+  \item \textbf{项目成果：}带队获\textbf{"挑战杯"全国大学生课外学术科技作品竞赛北京市一等奖}
+\end{itemize}
+\datedsubsection{\textbf{创享商圈 ROBOT-XZC | 技术服务与创业实践},创始人/技术负责人}{2023 - 至今}
+\begin{itemize}[parsep=0.1ex]
+  \item \textbf{运营：}主导校园技术服务平台，累计完成维修及3D打印服务\textbf{2000+次}，客户满意度95\%+
+  \item \textbf{培训：}策划执行机器人与3D打印公益培训\textbf{100+场}，覆盖师生\textbf{1000+人}
+  \item \textbf{商业：}创新"维修盈利+硬件研发"双轮驱动，月均营收8000元
 \end{itemize}
 
 % \begin{onehalfspacing}
@@ -81,16 +92,15 @@
 % \end{itemize}
 % \end{onehalfspacing}
 
-\section{竞赛获奖/项目作品}
-% increase linespacing [parsep=0.5ex]
-\begin{itemize}[parsep=0.2ex]
-  \item "挑战杯"全国大学生课外学术科技作品竞赛人工智能专项赛\textbf{北京市一等奖},2025年
-  \item 计算机能力挑战赛\textbf{国家级二等奖},2024年
-  \item 第十四届蓝桥杯全国软件和信息技术专业人才大赛\textbf{省级二等奖},2023年
-  \item 基于体域网技术的体育运动智能健康监测系统设计研发(大创)\textbf{国家级优秀},2023年
-  \item 第十八届iCAN大学生创新创业大赛\textbf{北京市二等奖},2024年
-
+\section{竞赛获奖}
+\begin{multicols}{2}
+\begin{itemize}[parsep=0.05ex,leftmargin=1.2pc,topsep=0.05em]
+  \item "挑战杯"人工智能专项赛\textbf{北京市一等奖},2025
+  \item 计算机能力挑战赛\textbf{国家级二等奖},2024
+  \item 第十四届蓝桥杯\textbf{省级二等奖},2023
+  \item 第十八届iCAN创新创业大赛\textbf{北京市二等奖},2024
 \end{itemize}
+\end{multicols}
 
 % \section{\faHeartO\ 项目/作品摘要}
 % \section{项目/作品摘要}

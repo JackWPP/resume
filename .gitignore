@@ -51,11 +51,12 @@ jspm_packages
 *.lot
 *.nav
 *.out
-*.pdf
 *.snm
 *.synctex.gz
 *.toc
 *.xdv
+# Note: *.pdf is intentionally NOT ignored - we commit rendered resume PDFs
+# *.pdf
 
 # Editor backups and local files
 *.bak
