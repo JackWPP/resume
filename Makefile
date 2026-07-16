@@ -4,9 +4,11 @@ PDFS = $(SRC:.tex=.pdf)
 
 all:	clean pdf
 
-en:	clean xelatex resume.tex
+en:	clean
+	xelatex resume.tex
 
-zh_CN:	clean xelatex resume-zh_CN.tex
+zh_CN:	clean
+	xelatex resume-zh_CN.tex
 
 pdf:	clean $(PDFS)
 
