@@ -58,6 +58,9 @@ jspm_packages
 # Note: *.pdf is intentionally NOT ignored - we commit rendered resume PDFs
 # *.pdf
 
+# Dated delivery copies (make export) - regenerable, not committed
+/export/
+
 # Editor backups and local files
 *.bak
 *.bak*

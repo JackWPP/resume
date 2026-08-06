@@ -12,6 +12,9 @@
 \geometry{top=0.40in,bottom=0.40in}
 \setlist[itemize]{topsep=0.10em,parsep=0.1ex,leftmargin=1.5pc}
 \linespread{0.85}
+% 局部收紧标题间距（不动 resume.cls），为单页腾版面
+\titlespacing*{\section}{0cm}{0.55em}{0.45em}
+\titlespacing*{\subsection}{0cm}{0.5em}{0.2em}
 
 \begin{document}
 \pagenumbering{gobble} % suppress displaying page number
@@ -31,7 +34,7 @@
 % \section{\faGraduationCap\ 教育背景}
 \section{教育背景}
 \datedsubsection{\textbf{北京化工大学},计算机科学与技术,\textit{工学学士}}{2021.9 - 2026.6}
-\ 获\textbf{挑战杯北京市一等奖}、\textbf{计算机能力挑战赛国家级二等奖}、\textbf{iCAN大赛北京市二等奖}等荣誉，预计2026年6月毕业
+\ 获\textbf{挑战杯北京市一等奖}、\textbf{计算机能力挑战赛国家级二等奖}、\textbf{iCAN大赛北京市二等奖}等荣誉
 \datedsubsection{\textbf{北京化工大学},化学工程与技术,\textit{工学硕士}}{2026.9 - 2029.6}
 \ 已保研至本校化学学院\textbf{化学工程与技术}专业，研究方向：\textbf{基于计算机视觉的电解水电极表面气泡追踪与量化分析}
 
@@ -49,21 +52,20 @@
 
 % \end{itemize}
 
-\section{校园实践}
-\datedsubsection{\textbf{北京化工大学 | 北校区工作办公室}, 特邀摄影师}{2023 - 2025}
-\begin{itemize}[parsep=0.1ex]
-  \item 负责学校重要活动现场拍摄与视觉记录，包括重要来宾跟拍、活动全程纪实等，确保影像素材的专业性与完整性
-  \item 连续两年负责新生入学"第一张照片"拍摄及宣传片制作，作品获校官方媒体刊发，单条播放量突破\textbf{10万+}
-\end{itemize}
-
-
 \section{项目经历}
+\datedsubsection{\textbf{毕业设计 | 电解水气泡识别检测模型开发},独立完成}{2025.9 - 2026.6}
+\begin{itemize}[parsep=0.05ex]
+  \item \textbf{数据集工程：}自建多工况气泡检测/分割数据集（7源170图$\to$\textbf{9524}框），SAM半自动标注，掩码覆盖率\textbf{99.79\%}
+  \item \textbf{检测模型：}提出Bubble-YOLO11s——P3LCRefine局部对比度细化（高通滤波+深度可分离卷积+可学习残差）与NWD损失（框建模为二维高斯、平滑小目标梯度）协同CIoU融合，配合Mosaic/HSV/MixUp增强配方，参数仅+\textbf{0.013\%}下S+\textbf{3.94\%}、mAP@50+\textbf{3.42\%}、mAP@50:95+\textbf{4.94\%}
+  \item \textbf{分割扩展：}BCE:Dice=9:1混合+SGD零增强，Mask mAP@50=\textbf{0.839}、mAP@50:95=\textbf{0.538}，12轮收敛（较AdamW提速3.8倍）
+  \item \textbf{平台闭环：}集成ByteTrack追踪+尺寸量化，KD-Tree/瑞利拟合，输出气泡脱附模式诊断
+\end{itemize}
 \datedsubsection{\textbf{FoxSay 狐说 | 课程级AI学习Copilot},全栈开发(独立)}{2025 - 至今}
 \begin{itemize}[parsep=0.05ex]
-  \item \textbf{CRAG边界控制：}自研Confidence-RAG三档门控——\texttt{$\ge$\,0.72}附页码引用、\texttt{0.55--0.72}标注基于通用知识、\texttt{<\,0.55}直接拒答，解决通用AI\textbf{幻觉与超纲}问题
-  \item \textbf{全栈实现：}前端 \textbf{React 19 + TS 6 + Tailwind v4 + Vite 8}（\texttt{reactflow}+\texttt{@dagrejs/dagre} 知识图谱、\texttt{katex} 公式）；后端 Python + \textbf{LangGraph} 多Agent，\textbf{168 个后端测试用例全部通过}
+  \item \textbf{CRAG边界控制：}自研Confidence-RAG三档置信门控（\texttt{$\ge$0.72}附页码引用/\texttt{0.55--0.72}标通用知识/\texttt{<0.55}拒答），解决通用AI\textbf{幻觉与超纲}问题
+  \item \textbf{全栈实现：}前端 \textbf{React 19 + TS 6 + Tailwind v4 + Vite 8}；后端 \textbf{LangGraph} 多Agent，\textbf{168 个测试用例全部通过}
   \item \textbf{完整闭环：}4阶段Pipeline构建知识体系 $\to$ 7工具ReAct混合检索 $\to$ React Flow知识图谱 $\to$ 9步状态机超级备考 $\to$ 多题型自动出题
-  \item \textbf{狐狸人设：}文案"贱萌但靠谱"风格 + \texttt{fox-breathe}/\texttt{fox-shimmer}/\texttt{fox-stagger-in}/\texttt{fox-pulse-ring} 等命名CSS动画，视觉/文案/交互统一
+  \item \textbf{狐狸人设：}文案"贱萌但靠谱"风格 + 成套命名CSS动画，视觉/文案/交互统一
 \end{itemize}
 \datedsubsection{\textbf{PCBTool.AI | 智能PCB设计辅助系统},算法负责人}{2025 - 至今}
 \begin{itemize}[parsep=0.1ex]
@@ -71,11 +73,12 @@
   \item \textbf{部署优化：}主导Dify私有化部署，通过多Agent协作与精准Prompt工程精细调优，系统响应准确率提升40\%+
   \item \textbf{项目成果：}带队获\textbf{"挑战杯"全国大学生课外学术科技作品竞赛北京市一等奖}
 \end{itemize}
-\datedsubsection{\textbf{创享商圈 ROBOT-XZC | 技术服务与创业实践},创始人/技术负责人}{2023 - 至今}
+
+\section{校园实践}
+\datedsubsection{\textbf{北京化工大学 | 北校区工作办公室}, 特邀摄影师}{2023 - 2025}
 \begin{itemize}[parsep=0.1ex]
-  \item \textbf{运营：}主导校园技术服务平台，累计完成维修及3D打印服务\textbf{2000+次}，客户满意度95\%+
-  \item \textbf{培训：}策划执行机器人与3D打印公益培训\textbf{100+场}，覆盖师生\textbf{1000+人}
-  \item \textbf{商业：}创新"维修盈利+硬件研发"双轮驱动，月均营收8000元
+  \item 负责学校重要活动现场拍摄与视觉记录，包括重要来宾跟拍、活动全程纪实等
+  \item 连续两年负责新生入学"第一张照片"拍摄及宣传片制作，单条播放量突破\textbf{10万+}
 \end{itemize}
 
 % \begin{onehalfspacing}
@@ -93,14 +96,7 @@
 % \end{onehalfspacing}
 
 \section{竞赛获奖}
-\begin{multicols}{2}
-\begin{itemize}[parsep=0.05ex,leftmargin=1.2pc,topsep=0.05em]
-  \item "挑战杯"人工智能专项赛\textbf{北京市一等奖},2025
-  \item 计算机能力挑战赛\textbf{国家级二等奖},2024
-  \item 第十四届蓝桥杯\textbf{省级二等奖},2023
-  \item 第十八届iCAN创新创业大赛\textbf{北京市二等奖},2024
-\end{itemize}
-\end{multicols}
+"挑战杯"人工智能专项赛\textbf{北京市一等奖},2025\textperiodcentered\ 计算机能力挑战赛\textbf{国家级二等奖},2024\textperiodcentered\ 蓝桥杯\textbf{省级二等奖},2023\textperiodcentered\ iCAN创新创业大赛\textbf{北京市二等奖},2024
 
 % \section{\faHeartO\ 项目/作品摘要}
 % \section{项目/作品摘要}

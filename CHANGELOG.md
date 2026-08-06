@@ -29,8 +29,27 @@
 ## [Unreleased]
 
 ### Changed
+- 英文版扩充：新增 Summary 段、FoxSay 项目（此前缺失），毕设条目同步为
+  模型优化四条结构；整体压缩排版（边距 0.6in/0.4in、标题间距、行距 0.88）
+  维持单页。 (`feat`, `hybrid`)
+- 新增「毕业设计 | 电解水气泡识别检测模型开发」并置顶于项目经历，替换
+  创享商圈 ROBOT-XZC；模型优化拆分展开为检测模型/分割扩展两条；项目经历
+  提前至校园实践之上；竞赛获奖改单段内联排版；FoxSay 措辞压缩；英文版
+  同步；移除已过期的“预计2026年6月毕业”。 (`feat`, `hybrid`)
 - 重建仓库文档体系：新增 `AGENTS.md` 与本 `CHANGELOG.md`，重写 `README.md`
   ，统一规范自动/手动两种修改记录模式。 (`docs`, `hybrid`)
+
+### Chore
+- 新增 `make export`：编译并导出带日期命名的交付副本
+  （`王海翔-简历-YYYYMMDD.pdf` / `JackWang-Resume-YYYYMMDD.pdf`）至
+  `export/` 目录（已 gitignore）。 (`chore`, `agent`)
+- 修复 `Makefile` 的 `clean` 误删仓库根目录所有 PDF（含论文）的问题：
+  `clean` 仅清理编译中间产物，`make all` 不再依赖 clean。 (`fix`, `agent`)
+- 配置本机（macOS arm64）LaTeX 编译环境：安装 BasicTeX 2026 + poppler，
+  tlmgr 补齐 `xecjk` / `xltxtra` / `realscripts` / `ifmtarg` 等宏包并免 sudo
+  化；修复 `Makefile` 失效的 `en` 目标（原指向不存在的 `resume.tex`）；
+  README 补充 macOS 快速配置与完整 tlmgr 安装清单；中英双版 PDF 重新编译
+  入库。 (`chore`, `agent`)
 
 ## [2025.11.1] - 2025-11-17
 

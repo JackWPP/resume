@@ -59,7 +59,7 @@ make all
 任意支持 TeX Live 的系统。已在以下环境验证：
 
 - ✅ Debian 12 / Ubuntu 22.04+（`apt install texlive-xetex texlive-lang-chinese`）
-- ✅ macOS 13+（[MacTeX](https://tug.org/mactex/)）
+- ✅ macOS 13+（本机已按下方“macOS 快速配置”装好 BasicTeX 2026，2026-08-05 验证）
 - ✅ Windows 11 + [TeX Live 2023+](https://tug.org/texlive/)
 - ⚠️ Overleaf（在线）需把 `fonts/zh_CN-Adobe/` 整个目录上传（默认使用
   `zh_CN-Adobefonts_external` 即可）
@@ -94,8 +94,28 @@ MacTeX 用户：装好即全。TeX Live minimal 用户：
 
 ```bash
 tlmgr install fontspec xeCJK xcolor xltxtra xifthen fontawesome geometry \
-         titlesec enumitem setspace multicol cite
+         titlesec enumitem setspace multicol cite realscripts ifmtarg
 ```
+
+> `realscripts` 与 `ifmtarg` 分别是 `xltxtra` / `xifthen` 的依赖，
+> minimal 安装容易漏掉，缺它们会报 `File *.sty not found`。
+
+**macOS 快速配置（本机已验证，BasicTeX 路线）：**
+
+```bash
+brew install --cask basictex   # 安装过程会要求输入一次 macOS 密码
+brew install poppler            # 提供 pdfinfo（编译后自检用）
+
+# 把 TeX Live 目录所有权转给当前用户，之后 tlmgr 不再需要 sudo
+sudo chown -R $(whoami):admin /usr/local/texlive
+
+# 新开终端后 xelatex 已自动在 PATH（/etc/paths.d/TeX）
+tlmgr update --self
+tlmgr install fontspec xeCJK xltxtra xifthen xcolor geometry titlesec \
+         enumitem nth cite tools etoolbox realscripts ifmtarg
+```
+
+之后新增宏包时直接 `tlmgr install <包名>`（已免 sudo）。
 
 ### 3. 字体
 
@@ -137,12 +157,25 @@ xelatex -interaction=nonstopmode resume-en.tex
 ### Makefile 目标
 
 ```bash
-make          # 等价 make all：clean + 编译所有 .tex
+make          # 等价 make all：编译所有 .tex
 make pdf      # 仅编译，不清理
 make clean    # 清理所有中间产物
 make zh_CN    # 仅编译中文版
 make en       # 仅编译英文版
+make export   # 编译并导出带日期命名的交付副本（见下）
 ```
+
+### 导出带日期命名的交付副本
+
+投递/交付时用 `make export`，会在 `export/` 目录生成带日期的命名副本
+（已 gitignore，不入库）：
+
+```
+王海翔-简历-20260805.pdf      # 中文版
+JackWang-Resume-20260805.pdf  # 英文版
+```
+
+日期取自系统当天（`date +%Y%m%d`），重复运行会覆盖同一天的旧副本。
 
 ### 编译后自检
 

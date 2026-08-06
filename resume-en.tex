@@ -3,6 +3,12 @@
 \documentclass[10pt]{resume}
 \usepackage{linespacing_fix}
 \usepackage{cite}
+\usepackage{geometry}
+% 英文版局部：边距收窄 + 标题间距收紧 + 行距压缩（不动 resume.cls）
+\geometry{left=0.6in,right=0.6in,top=0.4in,bottom=0.4in}
+\linespread{0.88}
+\titlespacing*{\section}{0cm}{0.55em}{0.45em}
+\titlespacing*{\subsection}{0cm}{0.5em}{0.2em}
 
 \begin{document}
 \pagenumbering{gobble}
@@ -10,9 +16,12 @@
 \name{Haixiang Wang}
 \contactInfo{(+86) 156-6207-7668}{jt846962421@gmail.com}{AI Agent Engineer}{GitHub: @JackWPP}
 
+\section{Summary}
+Computer Science graduate focused on LLM applications and multi-Agent systems; led multiple innovation projects at university; skilled in RAG, prompt engineering, and private deployment. First Prize, Beijing "Challenge Cup" (2025); strong in teamwork, crisis handling, and project management.
+
+
 \section{Education}
 \datedsubsection{\textbf{Beijing University of Chemical Technology} -- B.E. Computer Science}{Sep 2021 - Jun 2026}
-\textbf{Awards:} First Prize in "Challenge Cup" Beijing Competition (2025), National Second Prize in Computer Skills Challenge (2024), Second Prize in iCAN Competition Beijing Region (2024).
 
 \datedsubsection{\textbf{Beijing University of Chemical Technology} -- M.E. Chemical Engineering}{Sep 2026 - Jun 2029}
 Recommended admission (graduate exam exemption). Research: Computer Vision-based Bubble Tracking for Water Electrolysis.
@@ -26,6 +35,20 @@ Recommended admission (graduate exam exemption). Research: Computer Vision-based
 \end{itemize}
 
 \section{Project Experience}
+\datedsubsection{\textbf{Graduation Thesis} -- Bubble Detection Model for Water Electrolysis, \textit{Independent Research}}{Sep 2025 - Jun 2026}
+\begin{itemize}[parsep=0.1ex, leftmargin=1.2pc]
+  \item \textbf{Dataset engineering:} Built a multi-condition bubble detection/segmentation dataset (170 raw images from 7 sources $\to$ \textbf{9,524} labeled boxes) with a SAM-based semi-automatic labeling pipeline, achieving \textbf{99.79\%} mask coverage.
+  \item \textbf{Detection model:} Proposed \textbf{Bubble-YOLO11s} -- P3LCRefine local-contrast refinement (high-pass separation of detail and background + depthwise separable convolution + learnable residual) and NWD loss (boxes modeled as 2D Gaussians for smoother small-object gradients) fused with CIoU, plus Mosaic, HSV, MixUp augmentation -- improving S by \textbf{+3.94\%}, mAP@50 by \textbf{+3.42\%}, mAP@50:95 by \textbf{+4.94\%} with only +0.013\% parameters.
+  \item \textbf{Segmentation extension:} BCE:Dice=9:1 hybrid loss + SGD zero-augmentation training, reaching \textbf{mAP@50=0.839} and mAP@50:95=0.538, converging in 12 epochs (3.8x faster than AdamW).
+  \item \textbf{Platform integration:} Combined detection with ByteTrack tracking and size quantification; KD-Tree/Rayleigh spatial statistics output bubble-detachment diagnostics.
+\end{itemize}
+
+\datedsubsection{\textbf{FoxSay} -- Course-Level AI Learning Copilot, \textit{Full-stack Developer (Solo)}}{2025 - Present}
+\begin{itemize}[parsep=0.1ex, leftmargin=1.2pc]
+  \item \textbf{CRAG boundary control:} Self-built Confidence-RAG three-tier gating ($\ge$0.72 cited / 0.55--0.72 general-knowledge / <0.55 refused), eliminating hallucination and out-of-syllabus responses.
+  \item \textbf{Full-stack implementation:} React 19 + TS + Tailwind v4 + Vite 8 frontend; Python + LangGraph multi-Agent backend; \textbf{168 backend test cases all passing}.
+  \item \textbf{Complete learning loop:} 4-stage pipeline knowledge base $\to$ 7-tool ReAct hybrid retrieval $\to$ React Flow knowledge graph $\to$ 9-step exam state machine $\to$ multi-type auto question generation.
+\end{itemize}
 \datedsubsection{\textbf{PCBTool.AI} -- Intelligent PCB Design System, \textit{Algorithm Lead}}{2025 - Present}
 \begin{itemize}[parsep=0.1ex, leftmargin=1.2pc]
   \item Built multimodal intelligent system using LLMs and RAG, supporting natural language and circuit diagram inputs; auto-generates documentation, deployment guides, and PCB layouts.
@@ -33,17 +56,10 @@ Recommended admission (graduate exam exemption). Research: Computer Vision-based
   \item \textbf{Result:} Won \textbf{First Prize} in "Challenge Cup" National Competition Beijing Region.
 \end{itemize}
 
-\datedsubsection{\textbf{ROBOT-XZC Technical Services}, \textit{Founder/Tech Lead}}{2023 - Present}
-\begin{itemize}[parsep=0.1ex, leftmargin=1.2pc]
-  \item Built campus technical service platform; completed \textbf{2000+} repairs and 3D printing services with 95\%+ satisfaction.
-  \item Conducted \textbf{100+} robotics and 3D printing training sessions, covering \textbf{1000+} participants.
-  \item Developed dual-driven model (repair profit + hardware R\&D); achieved monthly revenue of 8,000 RMB.
-\end{itemize}
-
 \section{Campus Involvement}
 \datedsubsection{\textbf{BUCT North Campus Affairs Office}, \textit{Official Photographer}}{2023 - 2025}
 \begin{itemize}[parsep=0.1ex, leftmargin=1.2pc]
-  \item Led photography for major events and VIP visits; created promotional content for official media.
+  \item Led photography for major events and VIP visits; produced official media content.
   \item Produced "First Photo" orientation videos achieving \textbf{100,000+} views on official platforms.
 \end{itemize}
 
@@ -52,7 +68,7 @@ Recommended admission (graduate exam exemption). Research: Computer Vision-based
   \item First Prize, "Challenge Cup" AI Competition (Beijing), 2025
   \item National Second Prize, Computer Skills Challenge, 2024
   \item Provincial Second Prize, Lanqiao Cup Software Competition, 2023
-  \item National Excellence, Innovation Training Program (Body Area Network Health Monitor), 2023
+  \item National Excellence, Innovation Training Program, 2023
   \item Second Prize, iCAN Innovation Competition (Beijing), 2024
 \end{itemize}
 
