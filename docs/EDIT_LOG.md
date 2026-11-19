@@ -8,12 +8,81 @@
 
 | ID | 日期 | 触发方 | 摘要 |
 |---|---|---|---|
+| [2026-11-19-01](#2026-11-19-01) | 2026-11-19 | agent | 中文简历全面优化：新增科研成果、删除 FoxSay、补齐 GitHub 背书，单页复验 |
 | [2026-08-06-01](#2026-08-06-01) | 2026-08-06 | agent | 新增徐晨岑中文简历：1 通用版 + 3 字节岗位定向版，单页 A4 |
 | [2026-08-05-04](#2026-08-05-04) | 2026-08-05 | hybrid | 英文版扩充：Summary + FoxSay + 毕设四条结构，压缩排版保单页 |
 | [2026-08-05-03](#2026-08-05-03) | 2026-08-05 | agent | 新增 make export：带日期命名的交付副本导出 |
 | [2026-08-05-02](#2026-08-05-02) | 2026-08-05 | hybrid | 毕业设计入简历并置顶，替换创享商圈，压缩 FoxSay，单页复验 |
 | [2026-08-05-01](#2026-08-05-01) | 2026-08-05 | agent | 配置本机 LaTeX 编译环境（BasicTeX + 宏包），修复 Makefile en 目标 |
 | [2026-07-16-01](#2026-07-16-01) | 2026-07-16 | agent | 简历新增 FoxSay 狐说项目，并紧凑化为单页 PDF |
+
+---
+
+<a id="2026-11-19-01"></a>
+
+## 2026-11-19-01
+
+```yaml
+id: 2026-11-19-01
+date: 2026-11-19
+trigger: agent
+commits:
+  - (待 owner 确认后提交)
+scope:
+  - resume-zh_CN.tex
+  - resume-zh_CN.pdf
+  - CHANGELOG.md
+  - docs/EDIT_LOG.md
+summary: "中文简历全面优化：Multi-Agent/RSI + AI4S 主线，新增科研成果与 RSI Harness 项目"
+```
+
+### 背景
+- owner 要求基于其 GitHub 主页（github.com/JackWPP）全面优化中文简历。
+- 对照发现：GitHub 已有 arXiv 论文（arXiv:2610.03577）与 NVIDIA Developer
+  Community 收录，但简历均未体现；FoxSay 与当前方向关联度下降，owner 明确
+  要求删除；开源项目经评估与方向关联不大，owner 决定不写入。
+- 简历抬头保持「AI Agent研发工程师」不变（owner 明确要求）。
+
+### 改动清单
+- 个人总结改写：由「擅长 RAG / 提示词工程 / 私有化部署」改为
+  「多 Agent 系统 + 受控递归自我改进（RSI）+ AI4S」主线，突出智训引擎
+  RSI Harness 与扩散模型加速研究。
+- 新增「科研成果」段：arXiv:2610.03577《Solver-Aware Target Selection for
+  Few-Step Diffusion Transformers》，附 AutoTarget 方法一句话说明；按 owner
+  要求不标注作者位次。
+- 新增「智训引擎 RSI Harness」项目：受控 RSI 架构（诊断归因→实验设计→
+  沙箱执行→门控上线，噪声阈值 promote / 2× 阈值回滚，官方基线续训
+  checkpoint 保证兼容）；18 个受限工具 + Guard + 多角色 Panel；记忆/技能
+  分层；macro-F1 0.277→0.787。
+- 删除「校园实践」段（owner 确认与目标方向关联度低），竞赛获奖改为逐条
+  列表，提升视觉权重。
+- PCBTool.AI 第三条改为「入选 NVIDIA Developer Community 项目展示；带队获
+  挑战杯北京市一等奖」，补上第三方背书；部署条压缩为单行。
+- 删除「FoxSay 狐说」整个项目块（owner 明确要求）。
+- 教育背景：硕士条目置前，统一为「化工学院」；删除与「竞赛获奖」重复的
+  奖项行，补充化工资源有效利用国家重点实验室信息。
+- 技术能力：补充 RSI/自我进化、AI4S、Swift / Dart / Docker / OpenCV / Flutter。
+- 启用 hyperref（hidelinks）：GitHub 与 arXiv 链接可点击，并写入 PDF 元数据。
+- 排版：`\linespread` 0.85 → 0.90；中文引号由直引号统一为 “”。
+- 竞赛获奖补入英文版已有的「大学生创新创业训练计划国家级优秀结题」。
+
+### 验证
+- 编译命令：`xelatex -interaction=nonstopmode resume-zh_CN.tex`
+- 退出码：`0`
+- 页数：`Pages: 1`
+- 警告：Overfull / Underfull / Missing character 均为 0
+- 底部余量：首页 yMax=791.0pt < 813.1pt 页边区
+- 渲染抽查：中文、数字、链接文本正常；三项目块 + 5 条奖项均在单页内。
+
+### 待确认
+- 「化工学院」为统一后的表述，原文件同时存在「化工学院」「化学学院」两种写法。
+- 「大学生创新创业训练计划国家级优秀结题」来自英文版 Honors，中文措辞待 owner 确认。
+- 开源项目（MiPods / 化研助手）未写入，如后续需要可再加。
+
+### 后续建议（非必须）
+- 英文版 `resume-en.tex` 尚未同步本轮改动（仍含 FoxSay、旧 Summary），
+  建议下一步同步。
+- 论文若后续中稿，可补充会议/期刊名与作者位次。
 
 ---
 
